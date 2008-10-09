@@ -27,45 +27,31 @@ class X3D
     
     def draw_box(*args)
         @shapes << Box.new(args)
+        raise "not implemented"
     end
 
     def draw_sphere(*args)
         @shapes << Sphere.new(args)
+        raise "not implemented"
+    end
+
+    def proto_instance(proto)
+        @protos << proto
+        raise "not implemented"
     end
 
     def move_to(*args)
-        p args
+        raise "not implemented"
     end
 end
 
-class Transform
-    def initialize( )
-        @shapes = []
-        @translation = [0, 0, 0]
-        @scale = [0, 0, 0]
-    end
 
-    def add_shape(shape)
-        @shapes << shape
-    end
-end
 
-class Shape
-    def initialize( )
-    end
-end
 
-class Box < Shape
-    def initialize(args)
-        args.each{ |key, value|
-            p "#{key}:"
-        }
-    end
-end
 
-class Sphere < Shape
 
-end
+
+
 
 x = X3D.new
 x.author "Abdulmajed Dakkak"
@@ -75,5 +61,5 @@ x.modified_on Time.now
 Box.new(:scale => [4,4,2], :i => 5)
 
 x.scene
-x.move_to 1,1,1,1
+# x.move_to 1,1,1,1
 

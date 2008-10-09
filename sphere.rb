@@ -1,0 +1,2 @@
+class Sphere < Shape
+end
