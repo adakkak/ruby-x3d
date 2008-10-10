@@ -1,2 +1,0 @@
-class Sphere < Shape
-end

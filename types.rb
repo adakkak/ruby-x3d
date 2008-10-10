@@ -35,7 +35,7 @@ module Types
             new_color = color
         elsif color.class == String
             split_char = color.include?(",") ? ", " : " "
-            new_color = color.split(split_char)
+            new_color = color.split(split_char).map{|x| x.to_f}
         else
             raise "SFColor input must be a String or an Array"
         end
@@ -70,116 +70,192 @@ module Types
             raise "MFColor input must be zero or more RGB triples"
         end
         
-        mfcolor = ""
+        mfcolor = []
         
         (new_colors.length / 3).times do |index|
-            mfcolor += " " + SFColor(new_colors[3*index, 3*(index+1)]) 
+            mfcolor << SFColor(new_colors[3*index, 3*(index+1)]) 
         end
 
-        return mfcolor
+        return mfcolor.join(" ")
     end
 
-    def SFColorRGBA
+    def SFColorRGBA(color)
+        if color.class == Array
+            new_color = color
+        elsif color.class == String
+            split_char = color.include?(",") ? ", " : " "
+            new_color = color.split(split_char)
+        else
+            raise "SFColor input must be a String or an Array"
+        end
+
+        if new_color.length != 4:
+            raise "SFColorRGBA input must be of the form R G B A"
+        end
+
+        new_color.each { |color|
+            if color > 1.0 or color < 0.0
+                raise "SFColorRGBA #{color} must be between 1.0 and 0.0" 
+            end
+        }
+
+        # convert everything to floating points
+        new_color = new_color.map{|color| color.to_f}
+
+        return new_color.join(" ")
+    end
+
+    def MFColorRGBA(*args)
+        if colors.class == Array
+            new_colors = colors
+        elsif colors.class == String
+            split_char = colors.include?(",") ? ", " : " "
+            new_colors = colors.split(split_char)
+        else
+            raise "MFColor input must be a String or an Array"
+        end
+
+        if new_colors.length % 4 != 0
+            raise "MFColorRGBA input must contain zero or more RGBA values"
+        end
+        
+        mfcolorrgba = []
+        
+        (new_colors.length / 4).times do |index|
+            mfcolor << SFColorRGBA(new_colors[3*index, 3*(index+1)]) 
+        end
+
+        return mfcolorrgba.join(" ")
+    end
+
+    def SFFloat(float = 0.0)
+        if float.class == String
+            if float.to_f == 0.0 and float != "0.0"
+                raise "SFFloat must be a floating point number. got #{float}"
+            end
+            new_float = float.to_f
+        elsif float.class == Fixnum
+            new_float = float.to_f
+        elsif float.class == Float
+            new_float = float.to_f
+        else
+            raise "SFFloat must be a floating point number. got #{float}"
+        end
+
+        return new_float.to_s
+    end
+
+    def MFFloat(floats = [])
+        if floats.class == Array
+            new_floats = floats 
+        elsif floats.class == String
+            split_char = floats.include?(",") ? ", " : " "
+            new_floats = floats.split(split_char)
+        else
+            raise "MFFloat input must be a String or an Array"
+        end
+
+        mffloats = []
+        new_floats.each { |float|
+            mffloats << SFFloat(float)
+        }
+
+        return mffloats.join(" ")
+    end
+
+    def SFImage(*args)
         raise "Not Implemented"
     end
 
-    def MFColorRGBA
+    def MFImage(*args)
         raise "Not Implemented"
     end
 
-    def SFDouble
+    def SFInt32(*args)
         raise "Not Implemented"
     end
 
-    def MFDouble
+    def MFInt32(*args)
         raise "Not Implemented"
     end
 
-    def SFFloat
+    def SFNode(*args)
         raise "Not Implemented"
     end
 
-    def MFFloat
+    def MFNode(*args)
         raise "Not Implemented"
     end
 
-    def SFImage
+    def SFRotation(*args)
         raise "Not Implemented"
     end
 
-    def MFImage
+    def MFRotation(*args)
         raise "Not Implemented"
     end
 
-    def SFInt32
+    def SFString(*args)
         raise "Not Implemented"
     end
 
-    def MFInt32
+    def MFString(*args)
         raise "Not Implemented"
     end
 
-    def SFNode
+    def SFTime(*args)
         raise "Not Implemented"
     end
 
-    def MFNode
+    def MFTime(*args)
         raise "Not Implemented"
     end
 
-    def SFRotation
+    def SFVec2d(*args)
         raise "Not Implemented"
     end
 
-    def MFRotation
+    def MFVec2d(*args)
         raise "Not Implemented"
     end
 
-    def SFString
+    def SFVec2f(*args)
         raise "Not Implemented"
     end
 
-    def MFString
+    def MFVec2f(*args)
         raise "Not Implemented"
     end
 
-    def SFTime
+    def SFVec3f(vec)
+        if vec.class == String
+            split_char = vec.include?(",") ? ", " : " "
+            new_vec = vec.split(split_char)
+        elsif vec.class == Array
+            new_vec = vec
+        else
+            raise "SFVec3D input must be an Array or String"
+        end
+        
+        if new_vec.length != 3
+            raise "SFVec3D length must be equal to 3, got #{vec} of size #{new_vec.length}"
+        end
+
+        return_vec = []
+        new_vec.each{ |v|
+            return_vec << SFFloat(v)
+        }
+
+        return return_vec.join(" ")
+    end
+
+    def MFVec3f(*args)
         raise "Not Implemented"
     end
 
-    def MFTime
-        raise "Not Implemented"
-    end
+    alias SFDouble SFFloat
+    alias MFDouble MFFloat
 
-    def SFVec2d
-        raise "Not Implemented"
-    end
-
-    def MFVec2d
-        raise "Not Implemented"
-    end
-
-    def SFVec2f
-        raise "Not Implemented"
-    end
-
-    def MFVec2f
-        raise "Not Implemented"
-    end
-
-    def SFVec3d
-        raise "Not Implemented"
-    end
-
-    def MFVec3d
-        raise "Not Implemented"
-    end
-
-    def SFVec3f
-        raise "Not Implemented"
-    end
-
-    def MFVec3f
-        raise "Not Implemented"
-    end
+    alias SFVec3d SFVec3f
+    alias MFVec3d MFVec3f
 end

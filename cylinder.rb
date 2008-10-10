@@ -1,3 +1,0 @@
-class Cylinder < Shape
-end
-
