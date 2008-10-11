@@ -9,10 +9,10 @@ class Shape
     include Types
     attr_accessor :def, :appearance, :geometry
 
-    def initialize(name, appearance = nil, geometry = nil)
-        @def = name
-        @appearance = appearance
-        @geometry = geometry
+    def initialize(args={})
+        @def = args[:def] || "Shape#{rand(10000)}"
+        @appearance = args[:appearance] || nil
+        @geometry = args[:geometry] || nil
     end
     
     def add_appearance(appearance)
@@ -32,7 +32,7 @@ class Shape
 
         xml = Builder::XmlMarkup.new(:indent => 2)
         # TODO: use the :use attribute
-        xml.Shape(:def => @def) { |tag|
+        xml.Shape(:DEF => @def) { |tag|
             tag << @appearance.to_xml
             tag << @geometry.to_xml
         }
@@ -44,7 +44,7 @@ end
 
 # s = Shape.new("myShape")
 # a = Appearance.new("myAppearance")
-# a.add_material(Material.new("my material", 0.1, "0 0 0"))
+# a.add_material(ImageTexture.new("my texture","/home/top/adak/jds.jpg"))
 # s.add_appearance(a)
 # s.add_geometry(Box.new("mybox", "2 3 3"))
 # puts s

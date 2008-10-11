@@ -3,7 +3,9 @@
 module Types
     def SFBool(s = "FALSE")
         if not ["TRUE", "FALSE"].include? s
-            raise "SFBool input must either be TRUE or FALSE"
+            raise SyntaxError, 
+                "SFBool input must either be TRUE or FALSE got #{s}",
+                caller
         end
 
         return s
@@ -16,14 +18,18 @@ module Types
             split_char = s.include?(",") ? ", " : " "
             new_s = s.split(split_char)
         else
-            raise "MFBool input must be a String or an Array"
+            raise TypeError,
+                "MFBool input must be a String or an Array got #{s}",
+                caller
         end
 
         # Check to see if each value in MFBool is either 
         # TRUE or FALSE
         new_s.each { |boolean|
             if not ["TRUE", "FALSE"].include? boolean
-                raise "MFBool values is not TRUE or FALSE"
+                raise SyntaxError,
+                    "MFBool values is not TRUE or FALSE got #{s}",
+                    caller
             end
         }
 
@@ -37,16 +43,22 @@ module Types
             split_char = color.include?(",") ? ", " : " "
             new_color = color.split(split_char).map{|x| x.to_f}
         else
-            raise "SFColor input must be a String or an Array"
+            raise TypeError,
+                "SFColor input must be a String or an Array got #{color}",
+                caller
         end
 
         if new_color.length != 3:
-            raise "SFColor input must be a triplet R G B"
+            raise SyntaxError,
+                "SFColor input must be a triplet R G B got #{color}",
+                caller
         end
 
         new_color.each { |color|
             if color > 1.0 or color < 0.0
-                raise "SFColor #{color} must be between 1.0 and 0.0" 
+                raise RangeError,
+                    "SFColor values must be between 1.0 and 0.0 got #{color}",
+                    caller 
             end
         }
 
@@ -63,11 +75,15 @@ module Types
             split_char = colors.include?(",") ? ", " : " "
             new_colors = colors.split(split_char)
         else
-            raise "MFColor input must be a String or an Array"
+            raise TypeError,
+                "MFColor input must be a String or an Array got #{colors}",
+                caller
         end
 
         if new_colors.length % 3 != 0
-            raise "MFColor input must be zero or more RGB triples"
+            raise RangeError,
+                "MFColor input must be zero or more RGB triples got #{colors}",
+                caller
         end
         
         mfcolor = []
@@ -86,16 +102,22 @@ module Types
             split_char = color.include?(",") ? ", " : " "
             new_color = color.split(split_char)
         else
-            raise "SFColor input must be a String or an Array"
+            raise TypeError,
+                "SFColor input must be a String or an Array got #{color}",
+                caller
         end
 
         if new_color.length != 4:
-            raise "SFColorRGBA input must be of the form R G B A"
+            raise SyntaxError,
+                "SFColorRGBA input must be of the form R G B A got #{color}",
+                caller
         end
 
         new_color.each { |color|
             if color > 1.0 or color < 0.0
-                raise "SFColorRGBA #{color} must be between 1.0 and 0.0" 
+                raise RangeError,
+                    "SFColorRGBA must be between 1.0 and 0.0 got #{color}",
+                    caller
             end
         }
 
@@ -105,18 +127,22 @@ module Types
         return new_color.join(" ")
     end
 
-    def MFColorRGBA(*args)
+    def MFColorRGBA(colors)
         if colors.class == Array
             new_colors = colors
         elsif colors.class == String
             split_char = colors.include?(",") ? ", " : " "
             new_colors = colors.split(split_char)
         else
-            raise "MFColor input must be a String or an Array"
+            raise TypeError,
+                "MFColor input must be a String or an Array got #{colors} (#{colors.class})",
+                caller
         end
 
         if new_colors.length % 4 != 0
-            raise "MFColorRGBA input must contain zero or more RGBA values"
+            raise SyntaxError,
+                "MFColorRGBA input must contain zero or more RGBA values got #{new_colors.length}",
+                caller
         end
         
         mfcolorrgba = []
@@ -130,8 +156,10 @@ module Types
 
     def SFFloat(float = 0.0)
         if float.class == String
-            if float.to_f == 0.0 and float != "0.0"
-                raise "SFFloat must be a floating point number. got #{float}"
+            if float.to_f == 0.0 and float != "0.0" and float != "0"
+                raise TypeError,
+                    "SFFloat must be a floating point number. got #{float} (#{float.class})",
+                    caller
             end
             new_float = float.to_f
         elsif float.class == Fixnum
@@ -139,7 +167,9 @@ module Types
         elsif float.class == Float
             new_float = float.to_f
         else
-            raise "SFFloat must be a floating point number. got #{float}"
+            raise TypeError,
+                "SFFloat must be a floating point number. got #{float} (#{float.class})",
+                caller
         end
 
         return new_float.to_s
@@ -152,7 +182,9 @@ module Types
             split_char = floats.include?(",") ? ", " : " "
             new_floats = floats.split(split_char)
         else
-            raise "MFFloat input must be a String or an Array"
+            raise TypeError, 
+                "MFFloat input must be a String or an Array got #{s} (#{s.class})",
+                caller
         end
 
         mffloats = []
@@ -187,20 +219,46 @@ module Types
         raise "Not Implemented"
     end
 
-    def SFRotation(*args)
-        raise "Not Implemented"
+    def SFRotation(vec)
+        if vec.class == String
+            split_char = vec.include?(",") ? ", " : " "
+            new_vec = vec.split(split_char)
+        elsif vec.class == Array
+            new_vec = vec
+        else
+            raise TypeError, "SFRotation input must be an Array or String got #{vec}", caller
+        end
+        
+        if new_vec.length != 4
+            raise RangeError,
+                "SFRotation length must be equal to 4, got #{vec} of size #{new_vec.length}",
+                caller
+        end
+
+        return_vec = []
+        new_vec.each{ |v|
+            return_vec << SFFloat(v)
+        }
+
+        return return_vec.join(" ")
     end
 
     def MFRotation(*args)
         raise "Not Implemented"
     end
 
-    def SFString(*args)
-        raise "Not Implemented"
+    def SFString(string)
+#         return  '"' + string + '"'  # put quotes around the string
+        return  string               # while the above is more correct,
+        # xml builder gets confused because of it.  It should be OK so long as
+        # there is no spaces in the file names
     end
 
-    def MFString(*args)
-        raise "Not Implemented"
+    def MFString(strings)
+        return_strings = []
+        strings.each{|string| return_strings << SFString(string)}
+#         return "'" + return_strings.join(" ") + "'"
+        return return_strings.join(" ")
     end
 
     def SFTime(*args)
@@ -234,11 +292,13 @@ module Types
         elsif vec.class == Array
             new_vec = vec
         else
-            raise "SFVec3D input must be an Array or String"
+            raise TypeError, "SFVec3D input must be an Array or String got #{vec}", caller
         end
         
         if new_vec.length != 3
-            raise "SFVec3D length must be equal to 3, got #{vec} of size #{new_vec.length}"
+            raise RangeError,
+                "SFVec3D length must be equal to 3, got #{vec} of size #{new_vec.length}",
+                caller
         end
 
         return_vec = []

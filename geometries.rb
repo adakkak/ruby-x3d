@@ -2,15 +2,15 @@ require 'rubygems'
 require 'builder'
 require 'types'
 
+include Types
+
 class Box
-    include Types
+    attr_reader :def, :size, :is_solid
 
-    attr_accessor :def, :size, :is_solid
-
-    def initialize(name, size="2 2 2", is_solid="TRUE")
-        @def = name
-        @size = SFVec3f(size)
-        @is_solid = SFBool(is_solid)
+    def initialize(args={})
+        @def = args[:def] || "Box#{rand(10000)}"
+        @size = SFVec3f(args[:size] || "2 2 2") 
+        @is_solid = SFBool(args[:is_solid] || "TRUE")
     end
 
     def size=(size)
@@ -23,7 +23,7 @@ class Box
 
     def to_xml
         xml = Builder::XmlMarkup.new(:indent => 2)
-        xml.Box(:def => @def, :size => @size, :solid => @is_solid) 
+        xml.Box(:DEF => @def, :size => @size, :solid => @is_solid) 
         xml.target!
     end
 
@@ -31,20 +31,17 @@ class Box
 end
 
 class Cylinder
-    include Types
+    attr_reader :def, :radius, :height, :has_bottom, :has_side
+    attr_reader :has_top, :is_solid
 
-    attr_accessor :def, :radius, :height, :has_bottom, :has_side
-    attr_accessor :has_top, :is_solid
-
-    def initialize(name, radius=1, height=2, has_bottom="TRUE",
-                   has_side="TRUE", has_top = "TRUE", is_solid="TRUE")
-        @def = name
-        @radius = SFFloat(radius)
-        @height = SFFloat(height)
-        @has_bottom = SFBool(has_bottom)
-        @has_top = SFBool(has_top)
-        @has_side = SFBool(has_side)
-        @is_solid = SFBool(is_solid)
+    def initialize(args={})
+        @def = args[:def] || "Cylinder#{rand(10000)}"
+        @radius = SFFloat(args[:radius] || 1)
+        @height = SFFloat(args[:height] || 2)
+        @has_bottom = SFBool(args[:has_bottom] || "TRUE")
+        @has_top = SFBool(args[:has_top] || "TRUE")
+        @has_side = SFBool(args[:has_side] || "TRUE")
+        @is_solid = SFBool(args[:is_solid] || "TRUE")
     end
 
     def radius=(radius)
@@ -73,13 +70,13 @@ class Cylinder
 
     def to_xml
         xml = Builder::XmlMarkup.new(:indent => 2)
-        xml.Cylinder(:def => @def, 
-                  :radius => @radius,
-                  :height => @height,
-                  :bottom => @has_bottom,
-                  :side => @has_side,
-                  :top => @has_top,
-                  :solid => @is_solid) 
+        xml.Cylinder(:DEF => @def, 
+                     :radius => @radius,
+                     :height => @height,
+                     :bottom => @has_bottom,
+                     :side => @has_side,
+                     :top => @has_top,
+                     :solid => @is_solid) 
         xml.target!
     end
 
@@ -87,19 +84,16 @@ class Cylinder
 end
 
 class Cone
-    include Types
+    attr_reader :def, :bottomRadius, :height, :has_bottom, :has_side
+    attr_reader :is_solid
 
-    attr_accessor :def, :bottomRadius, :height, :has_bottom, :has_side
-    attr_accessor :is_solid
-
-    def initialize(name, bottom_radius=1, height=2, has_bottom="TRUE",
-                   has_side="TRUE", is_solid="TRUE")
-        @def = name
-        @bottom_radius = SFFloat(bottom_radius)
-        @height = SFFloat(height)
-        @has_bottom = SFBool(has_bottom)
-        @has_side = SFBool(has_side)
-        @is_solid = SFBool(is_solid)
+    def initialize(args={})
+        @def = args[:def] || "Cone{rand(10000)}"
+        @bottom_radius = SFFloat(args[:bottom_radius] || 1)
+        @height = SFFloat(args[:height] || 2)
+        @has_bottom = SFBool(args[:has_bottom] || "TRUE")
+        @has_side = SFBool(args[:has_side] || "TRUE")
+        @is_solid = SFBool(args[:is_solid] || "TRUE")
     end
 
     def bottom_radius=(bottom_radius)
@@ -124,12 +118,12 @@ class Cone
 
     def to_xml
         xml = Builder::XmlMarkup.new(:indent => 2)
-        xml.Cone(:def => @def, 
-                  :bottomRadius => @bottomRadius,
-                  :height => @height,
-                  :bottom => @has_bottom,
-                  :side => @has_side,
-                  :solid => @is_solid) 
+        xml.Cone(:DEF => @def, 
+                 :bottomRadius => @bottomRadius,
+                 :height => @height,
+                 :bottom => @has_bottom,
+                 :side => @has_side,
+                 :solid => @is_solid) 
         xml.target!
     end
 
@@ -137,14 +131,12 @@ class Cone
 end
 
 class Sphere
-    include Types
-    
-    attr_accessor :def, :radius, :is_solid
+    attr_reader :def, :radius, :is_solid
 
-    def initialize(name, radius=1, is_solid="TRUE")
-        @def = name
-        @radius = SFFloat(radius)
-        @is_solid = SFBool(is_solid)
+    def initialize(args={})
+        @def = args[:def] || "Sphere#{rand(10000)}"
+        @radius = SFFloat(args[:radius] || 1)
+        @is_solid = SFBool(args[:is_solid] || "TRUE")
     end
 
     def radius=(radius)
@@ -158,7 +150,7 @@ class Sphere
 
     def to_xml
         xml = Builder::XmlMarkup.new(:indent => 2)
-        xml.Sphere(:def => @def, 
+        xml.Sphere(:DEF => @def, 
                   :radius => @radius,
                   :solid => @is_solid) 
         xml.target!
