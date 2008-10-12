@@ -57,26 +57,25 @@ class X3D
 end
 
 
-require 'shape'
-require 'transform'
+# require 'shape'
+# require 'transform'
 
-x = X3D.new
+# x = X3D.new
 # m = Metadata.new
 # m.author "Abdulmajed Dakkak"
 # m.created_on "9/25/2008"
 # m.modified_on Time.now
 
-s = Shape.new 
-s.add_geometry Box.new(:def=>"test", :size=>[4,4,3])
-m = Appearance.new :def=>"my appearance"
-m.add_material Material.new(:def=>"my material", :ambient_intensity=>0.4, :diffuse_color=>"0.4 0.4 0.2")
-m.add_texture ImageTexture.new(:def=>"my texture", :url=>"/home/adakkak/.wallpaper/a.jpg")
-s.add_appearance m
-# puts s
+# s = Shape.new 
+# s.add_geometry Box.new(:def=>"test", :size=>[4,4,3])
+# m = Appearance.new :def=>"my appearance"
+# m.add_material Material.new(:def=>"my material", :ambient_intensity=>0.4, :diffuse_color=>"0.4 0.4 0.2")
+# m.add_texture ImageTexture.new(:def=>"my texture", :url=>"/home/adakkak/.wallpaper/a.jpg")
+# s.add_appearance m
 
-t = Transform.new(:def=>"my transform")
-t.add_shape s
-x.add_object t
+# t = Transform.new(:def=>"my transform")
+# t.add_shape s
+# x.add_object t
 
-puts x.to_xml
+# puts x.to_xml
 # x.move_to 1,1,1,1
