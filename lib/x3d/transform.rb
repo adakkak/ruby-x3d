@@ -38,6 +38,9 @@ module X3DLib
             @shapes << shape
         end
 
+        alias add_object add_shape
+        alias add_node add_shape
+
         def move_to point
             @translation = SFVec3f(point)
         end
