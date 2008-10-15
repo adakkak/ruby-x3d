@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-require '../lib/X3D'
+require '../../lib/X3D'
 
 class Building
     def initialize(dim_x, dim_y, dim_z, pos_x, pos_y)

@@ -8,6 +8,7 @@
     x3d/transform
     x3d/x3d
     x3d/types
+    x3d/group
 }.each{ |lib|
     require File.join(File.dirname(__FILE__), "../lib", lib)
 }

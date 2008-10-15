@@ -2,7 +2,7 @@
 
 module X3DLib
     class X3D
-        def initialize(*args)
+        def initialize
             @scenes = []
             @metadata = nil
             @scene = {}
