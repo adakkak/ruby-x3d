@@ -6,7 +6,7 @@ module X3DLib
         attr_accessor :def, :appearance, :geometry
 
         def initialize(args={})
-            @def = args[:def] || "Shape#{rand(10000)}"
+            @def = args[:def] || "Shape#{rand($RAND)}"
             @appearance = args[:appearance] || nil
             @geometry = args[:geometry] || nil
         end

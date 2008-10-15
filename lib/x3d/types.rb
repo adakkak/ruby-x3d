@@ -1,6 +1,8 @@
 # See ISO-IEC-19775-X3D Abstract specification part 1 in
 # section 5 (field type reference)
 module X3DLib
+    $RAND = 10000000000
+
     def SFBool(s = "FALSE")
         if not ["TRUE", "FALSE"].include? s
             raise SyntaxError, 

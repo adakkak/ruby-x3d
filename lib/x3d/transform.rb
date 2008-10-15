@@ -5,7 +5,7 @@ module X3DLib
     class Transform
 
         def initialize(args={})
-            @def = args[:def] || "Transform#{rand(10000)}"
+            @def = args[:def] || "Transform#{rand($RAND)}"
             @translation = SFVec3f(args[:translation] || "0 0 0")
             @rotation = SFRotation(args[:rotation] || "0 0 1 0")
             @center = SFVec3f(args[:center] || "0 0 0")

@@ -2,6 +2,8 @@ require 'rubygems'
 require 'builder'
 require '../../lib/X3D'
 
+$RAND = 100000000
+
 module Building
     class House
         def initialize(args={})
@@ -25,9 +27,9 @@ module Building
         end
 
         def generate_ground
-            @ground = Group.new :Def=>"Ground#{rand(1000)}"
+            @ground = Group.new :Def=>"Ground#{rand($RAND)}"
             a = Appearance.new
-            m = Material.new :diffuse_color=>"0.1 0.9 0.2"
+            m = Material.new :diffuse_color=>"0.01 0.9 0.2"
             a.add_material m
 
             object = Box.new :size=>[2*@dim_x, 0.1, 2*@dim_z]
@@ -43,7 +45,7 @@ module Building
         end
 
         def generate_walls
-            @walls = Group.new :def=>"Walls#{rand(1000)}"
+            @walls = Group.new :def=>"Walls#{rand($RAND)}"
 
             #generate some support beams
             [[1,1], [1,-1], [-1,-1], [-1,1]].each { |p, q|
@@ -52,7 +54,7 @@ module Building
                 m = Material.new       # should be marble in the future
                 a.add_material m
 
-                support_beam = Cylinder.new :height=>@dim_y, :radius=>0.1
+                support_beam = Cylinder.new :height=>@dim_y, :radius=>0.002
 
                 support.add_appearance a
                 support.add_geometry support_beam
@@ -68,7 +70,7 @@ module Building
             t = Transform.new
 
             a = Appearance.new
-            m = Material.new :diffuse_color=>"0.2 0.2 0.9"
+            m = Material.new :diffuse_color=>"#{rand} 0.2 0.9"
             a.add_material m
 
             t = Transform.new
@@ -84,7 +86,7 @@ module Building
             max_num_of_windows = 5
             num_of_windows = rand(max_num_of_windows - 2) + 2
 
-            @windows = Group.new :def=>"Windows#{rand(1000)}"
+            @windows = Group.new :def=>"Windows#{rand($RAND)}"
 
             num_of_windows.times{ |x|
                 a = Appearance.new
@@ -92,7 +94,7 @@ module Building
                 a.add_material m
 
                 # place window on the boundary
-                box = Box.new :size=>[@dim_x/4.0, @dim_y/4.0, 0.1]
+                box = Box.new :size=>[@dim_x/4.0, @dim_y/4.0, @dim_z/8.0]
                 
                 s = Shape.new
                 s.add_appearance a
@@ -107,20 +109,20 @@ module Building
         end
 
         def generate_door
-            @door = Group.new :def=>"Door"
+            @door = Group.new :def=>"Door#{rand($RAND)}"
         end
 
         def generate_roof
-            @roof = Group.new :def=>"Roof#{rand(1000)}"
+            @roof = Group.new :def=>"Roof#{rand($RAND)}"
         end
 
         def to_xml
-            house = Group.new :def=>"House#{rand(1000)}"
-            house.add_node @ground
+            house = Group.new :def=>"House#{rand($RAND)}"
+#             house.add_node @ground
             house.add_node @walls
-            house.add_node @windows
-            house.add_node @door
-            house.add_node @roof
+#             house.add_node @windows
+#             house.add_node @door
+#             house.add_node @roof
 
             house.to_xml
         end

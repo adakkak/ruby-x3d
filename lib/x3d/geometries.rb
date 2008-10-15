@@ -6,7 +6,7 @@ module X3DLib
         attr_reader :def, :size, :is_solid
 
         def initialize(args={})
-            @def = args[:def] || "Box#{rand(10000)}"
+            @def = args[:def] || "Box#{rand($RAND)}"
             @size = SFVec3f(args[:size] || "2 2 2") 
             @is_solid = SFBool(args[:is_solid] || "TRUE")
         end
@@ -33,7 +33,7 @@ module X3DLib
         attr_reader :has_top, :is_solid
 
         def initialize(args={})
-            @def = args[:def] || "Cylinder#{rand(10000)}"
+            @def = args[:def] || "Cylinder#{rand($RAND)}"
             @radius = SFFloat(args[:radius] || 1)
             @height = SFFloat(args[:height] || 2)
             @has_bottom = SFBool(args[:has_bottom] || "TRUE")
@@ -86,7 +86,7 @@ module X3DLib
         attr_reader :is_solid
 
         def initialize(args={})
-            @def = args[:def] || "Cone{rand(10000)}"
+            @def = args[:def] || "Cone#{rand($RAND)}"
             @bottom_radius = SFFloat(args[:bottom_radius] || 1)
             @height = SFFloat(args[:height] || 2)
             @has_bottom = SFBool(args[:has_bottom] || "TRUE")
@@ -132,7 +132,7 @@ module X3DLib
         attr_reader :def, :radius, :is_solid
 
         def initialize(args={})
-            @def = args[:def] || "Sphere#{rand(10000)}"
+            @def = args[:def] || "Sphere#{rand($RAND)}"
             @radius = SFFloat(args[:radius] || 1)
             @is_solid = SFBool(args[:is_solid] || "TRUE")
         end

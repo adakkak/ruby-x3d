@@ -1,5 +1,15 @@
-max_building_dim: "0.5 0.5 0.5"
+max_building_dim: "0.01 0.01 0.01"
 geo:
-  block_dir: "data/myblock"
-  block_name: "N1670710"
+  tile_dir: "data/tile"
+  tile_name: "N1670710"
   shape_dir: "data/shapefiles"
+lbbox:
+  left: 1670000.000060
+  bottom: 710000.000049
+  right: 1675000
+  top: 715000.000049
+
+#   left: 1673000.000060
+#   bottom: 710000.000049
+#   right: 1673400
+#   top: 715000.000049

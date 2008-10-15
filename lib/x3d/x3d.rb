@@ -33,12 +33,12 @@ module X3DLib
             xml.instruct! :xml, :version=>"1.0", :encoding=>"UTF-8"
 
             # generate X3D declaration
-            dtd = "http://www.web3d.org/specifications/x3d-3.0.dtd"
-            std = "ISO//Web3d//DTD X3D 3.0//EN"
+            dtd = "http://www.web3d.org/specifications/x3d-3.1.dtd"
+            std = "ISO//Web3d//DTD X3D 3.1//EN"
             xml.declare! :DOCTYPE, :X3D, :PUBLIC, std, dtd
 
             # place content
-            xml.X3D(:profile=>"Immersize", :version=>"3.0"){ |x3d|
+            xml.X3D(:profile=>"Immersive", :version=>"3.1"){ |x3d|
                 x3d.head << @metadata.to_xml unless @metadata.nil?
                 x3d.Scene { |tag|
                     unless @objects.nil?

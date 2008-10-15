@@ -7,7 +7,7 @@ module X3DLib
         attr_reader :def, :material, :texture, :texture_transform
 
         def initialize(args={})
-            @def = args[:def] || "Appearance#{rand(1000)}"
+            @def = args[:def] || "Appearance#{rand($RAND)}"
             @material = args[:material]
             @texture = args[:texture]
             @texture_transform = args[:texture_transform]
@@ -50,7 +50,7 @@ module X3DLib
         attr_reader :transparency
 
         def initialize(args={})
-            @def = args[:def] || "Material#{rand(1000)}"
+            @def = args[:def] || "Material#{rand($RAND)}"
             @ambient_intensity = SFFloat(args[:ambient_intensity] || 0.2)
             @diffuse_color = SFColor(args[:diffuse_color] || "0.8 0.8 0.8")
             @emissive_color = SFColor(args[:emissive_color] || "0 0 0")
@@ -104,7 +104,7 @@ module X3DLib
         attr_reader :def, :url, :repeat_s, :repeat_t
 
         def initialize(args={})
-            @def = args[:def] || "ImageTexture#{rand(1000)}"
+            @def = args[:def] || "ImageTexture#{rand($RAND)}"
             @urls = args[:urls] || args[:url] || []
             @repeat_s = SFBool(args[:repeat_s] || "TRUE")
             @repeat_t = SFBool(args[:repeat_t] || "TRUE")
