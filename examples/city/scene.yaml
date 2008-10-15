@@ -1,0 +1,5 @@
+max_building_dim: "0.5 0.5 0.5"
+geo:
+  block_dir: "data/myblock"
+  block_name: "N1670710"
+  shape_dir: "data/shapefiles"
