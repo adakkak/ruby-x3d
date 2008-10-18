@@ -23,6 +23,9 @@ module X3DLib
             @objects << object
         end
 
+        alias add_transform add_object
+        alias add_node add_object
+
         def to_xml
             require 'rubygems'
             require 'builder'

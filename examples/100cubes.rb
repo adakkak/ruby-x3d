@@ -1,6 +1,4 @@
-%w{x3d shape geometries transform}.each{ |lib|
-    require lib
-}
+require '../lib/X3D'
 
 x = X3D.new
 

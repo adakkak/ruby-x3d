@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3d//DTD X3D 3.1//EN" "http://www.web3d.org/specifications/x3d-3.1.dtd">
+<X3D version="3.1" profile="Immersive">
+  <Scene>
+<Transform scale="1.0 1.0 1.0" DEF="Transform3070824752550760" translation="-0.5 0.0 0.0" scaleOrientation="0.0 0.0 1.0 0.0" center="0.0 0.0 0.0" rotation="0.0 0.0 1.0 0.0">
+<Shape DEF="Shape6150219388236931">
+<Appearance DEF="Appearance6845448577615141">
+<Material DEF="Material425224318144440" shininess="0.2" ambientIntensity="0.2" diffuseColor="0.8 0.8 0.8" transparency="0.0" emissiveColor="0.0 0.0 0.0" specularColor="0.0 0.0 0.0"/>
+</Appearance>
+<Extrusion convex="TRUE" scale="1.0 1.0" DEF="Extrusion420064884189795" creaseAngle="0.0" solid="FALSE" crossSection="0.0 0.0, 0.4 0.0, 0.4 0.24, 0.2 0.3, 0.0 0.24, 0.0 0.0" spine="0.0 0.0 0.0, 0.0 0.0 -0.3" beginCap="TRUE" orientation="0.0 0.0 1.0 0.0" ccw="TRUE" endCap="TRUE"/>
+</Shape>
+</Transform>
+<Group DEF="Group7712297255617223">
+<Shape DEF="Shape541095682321100">
+<Appearance DEF="Appearance7550610179966379">
+<Material DEF="Material672459999961367" shininess="0.2" ambientIntensity="0.2" diffuseColor="0.8 0.8 0.8" transparency="0.0" emissiveColor="0.0 0.0 0.0" specularColor="0.0 0.0 0.0"/>
+</Appearance>
+<Extrusion convex="TRUE" scale="1.0 1.0" DEF="Extrusion6552141872423094" creaseAngle="0.0" solid="FALSE" crossSection="0.0 0.0, 0.24 0.0, 0.24 0.24, 0.12 0.3, 0.0 0.24, 0.0 0.0" spine="0.0 0.0 0.0, 0.0 0.0 -0.3" beginCap="TRUE" orientation="0.0 0.0 1.0 0.0" ccw="TRUE" endCap="TRUE"/>
+</Shape>
+<Transform scale="1.0 1.0 1.0" DEF="Transform4364618084030011" translation="0.24 0.0 0.0" scaleOrientation="0.0 0.0 1.0 0.0" center="0.0 0.0 0.0" rotation="0.0 0.0 1.0 0.0">
+<Shape DEF="Shape5369016346256922">
+<Appearance DEF="Appearance304795387494031">
+<Material DEF="Material7984511173709136" shininess="0.2" ambientIntensity="0.2" diffuseColor="0.8 0.8 0.8" transparency="0.0" emissiveColor="0.0 0.0 0.0" specularColor="0.0 0.0 0.0"/>
+</Appearance>
+<Extrusion convex="TRUE" scale="1.0 1.0" DEF="Extrusion5360393192649252" creaseAngle="0.0" solid="FALSE" crossSection="0.0 0.0, 0.16 0.0, 0.16 0.12, 0.0 0.24, 0.0 0.0" spine="0.0 0.0 0.0, 0.0 0.0 -0.3" beginCap="TRUE" orientation="0.0 0.0 1.0 0.0" ccw="TRUE" endCap="TRUE"/>
+</Shape>
+</Transform>
+</Group>
+  </Scene>
+</X3D>

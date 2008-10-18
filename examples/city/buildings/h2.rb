@@ -2,7 +2,7 @@ require 'rubygems'
 require 'builder'
 require '../../lib/X3D'
 
-$RAND = 100000000
+$RAND = 1000000000000000
 
 module Building
     class House
@@ -32,7 +32,7 @@ module Building
             m = Material.new :diffuse_color=>"0.01 0.9 0.2"
             a.add_material m
 
-            object = Box.new :size=>[2*@dim_x, 0.1, 2*@dim_z]
+            object = Box.new :size=>[2*@dim_x, @dim_y/4.0, 2*@dim_z]
 
             t = Transform.new
             s = Shape.new
@@ -54,7 +54,7 @@ module Building
                 m = Material.new       # should be marble in the future
                 a.add_material m
 
-                support_beam = Cylinder.new :height=>@dim_y, :radius=>0.002
+                support_beam = Cylinder.new :height=>@dim_y, :radius=>@dim_x/4.0
 
                 support.add_appearance a
                 support.add_geometry support_beam
@@ -70,7 +70,7 @@ module Building
             t = Transform.new
 
             a = Appearance.new
-            m = Material.new :diffuse_color=>"#{rand} 0.2 0.9"
+            m = Material.new :diffuse_color=>[rand, rand, rand]
             a.add_material m
 
             t = Transform.new
@@ -118,11 +118,11 @@ module Building
 
         def to_xml
             house = Group.new :def=>"House#{rand($RAND)}"
-#             house.add_node @ground
+            house.add_node @ground
             house.add_node @walls
-#             house.add_node @windows
-#             house.add_node @door
-#             house.add_node @roof
+            house.add_node @windows
+            house.add_node @door
+            house.add_node @roof
 
             house.to_xml
         end

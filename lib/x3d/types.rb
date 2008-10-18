@@ -1,10 +1,12 @@
 # See ISO-IEC-19775-X3D Abstract specification part 1 in
 # section 5 (field type reference)
 module X3DLib
-    $RAND = 10000000000
+    $RAND = 10000000000000000
 
     def SFBool(s = "FALSE")
-        if not ["TRUE", "FALSE"].include? s
+        s = s.upcase if ["true", "false"].include? s
+
+        unless ["TRUE", "FALSE"].include? s
             raise SyntaxError, 
                 "SFBool input must either be TRUE or FALSE got #{s}",
                 caller
@@ -245,8 +247,22 @@ module X3DLib
         return return_vec.join(" ")
     end
 
-    def MFRotation(*args)
-        raise "Not Implemented"
+    def MFRotation(rot)
+        if rot.class == String
+            split_char = ","
+            new_rot = rot.split(split_char)
+        elsif rot.class == Array
+            new_rot = rot
+        else
+            raise TypeError, "MFRotation input must be an Array or String got #{vec}", caller
+        end
+
+        return_rot = []
+        new_rot.each do |index|
+            return_rot << SFRotation(index.strip)
+        end
+
+        return return_rot.join(", ")
     end
 
     def SFString(string)
@@ -271,35 +287,19 @@ module X3DLib
         raise "Not Implemented"
     end
 
-    def SFVec2d(*args)
-        raise "Not Implemented"
-    end
-
-    def MFVec2d(*args)
-        raise "Not Implemented"
-    end
-
-    def SFVec2f(*args)
-        raise "Not Implemented"
-    end
-
-    def MFVec2f(*args)
-        raise "Not Implemented"
-    end
-
-    def SFVec3f(vec)
+    def SFVec2f(vec)
         if vec.class == String
             split_char = vec.include?(",") ? ", " : " "
             new_vec = vec.split(split_char)
         elsif vec.class == Array
             new_vec = vec
         else
-            raise TypeError, "SFVec3D input must be an Array or String got #{vec}", caller
+            raise TypeError, "SFVec2f input must be an Array or String got #{vec}", caller
         end
-        
-        if new_vec.length != 3
+
+        if new_vec.length != 2
             raise RangeError,
-                "SFVec3D length must be equal to 3, got #{vec} of size #{new_vec.length}",
+                "SFVec2f length must be equal to 2, got #{vec} of size #{new_vec.length}",
                 caller
         end
 
@@ -311,8 +311,68 @@ module X3DLib
         return return_vec.join(" ")
     end
 
-    def MFVec3f(*args)
-        raise "Not Implemented"
+    alias SFVec2d SFVec2f
+
+    def MFVec2f(vec)
+        if vec.class == String
+            split_char = ","
+            new_vec = vec.split(split_char)
+        elsif vec.class == Array
+            new_vec = vec
+        else
+            raise TypeError, "MFVec2f input must be an Array or String got #{vec}", caller
+        end
+
+        return_vec = []
+        new_vec.each do |index|
+            return_vec << SFVec2f(index.strip)
+        end
+
+        return return_vec.join(", ")
+    end
+
+    alias MFVec2d MFVec2f
+
+    def SFVec3f(vec)
+        if vec.class == String
+            split_char = vec.include?(",") ? ", " : " "
+            new_vec = vec.split(split_char)
+        elsif vec.class == Array
+            new_vec = vec
+        else
+            raise TypeError, "SFVec3f input must be an Array or String got #{vec}", caller
+        end
+        
+        if new_vec.length != 3
+            raise RangeError,
+                "SFVec3f length must be equal to 3, got #{vec} of size #{new_vec.length}",
+                caller
+        end
+
+        return_vec = []
+        new_vec.each{ |v|
+            return_vec << SFFloat(v)
+        }
+
+        return return_vec.join(" ")
+    end
+
+    def MFVec3f(vec)
+        if vec.class == String
+            split_char = ","
+            new_vec = vec.split(split_char)
+        elsif vec.class == Array
+            new_vec = vec
+        else
+            raise TypeError, "MFVec2f input must be an Array or String got #{vec}", caller
+        end
+
+        return_vec = []
+        new_vec.each do |index|
+            return_vec << SFVec3f(index.strip)
+        end
+
+        return return_vec.join(", ")
     end
 
     alias SFDouble SFFloat

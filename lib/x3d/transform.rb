@@ -18,21 +18,32 @@ module X3DLib
             @translation = SFVec3f(translation)
         end
 
+        alias translation translation=
+        alias move_to translation=
+
         def rotation=(rotation)
             @rotation = SFRotation(rotation)
         end
+
+        alias rotation rotation=
 
         def center=(center)
             @center = SFVec3f(center)
         end
 
+        alias center center=
+
         def scale=(scale)
             @scale = SFVec3f(scale)
         end
 
+        alias scale scale=
+
         def scale_orientation=(scale_orientation)
             @scale_orientation = SFRotation(scale_orientation)
         end
+
+        alias scale_orientation scale_orientation=
 
         def add_shape(shape)
             @shapes << shape
@@ -40,10 +51,7 @@ module X3DLib
 
         alias add_object add_shape
         alias add_node add_shape
-
-        def move_to point
-            @translation = SFVec3f(point)
-        end
+        alias add_group add_shape
 
         def to_xml
             if @shapes.length.zero?
