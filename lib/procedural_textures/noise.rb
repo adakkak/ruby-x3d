@@ -171,7 +171,15 @@ module Noise
 
             size[0].times{ |x|
                 size[1].times{ |y|
-                    n = (128*(noise(x/scale, y/scale) + 1)).to_i
+                    n = 128*(noise(x/scale, y/scale) + 1)
+
+#                     n1 = noise(x/scale, y/scale) * 1
+#                     n2 = noise(x/2*scale, y/2*scale) * 0.5
+#                     n3 = noise(x/4*scale, y/4*scale) * 0.25
+#                     n4 = noise(x/8*scale, y/8*scale) * 0.125
+
+#                     n = 128*(n1 + n2 + n3 + n4 + 1.875)/1.875
+
                     gc.fill("rgb(#{n},#{n},#{n})")
                     gc.point(x,y)
                 }
@@ -183,8 +191,11 @@ module Noise
     end
 end
 
-10.times do |z|
-    n = Noise::Noise3D.new
-    n.draw :file=>"noise#{z}.png", :size=>[128,128], :scale=>16.0, :z=>z
-    puts "finished #{z}...."
-end
+# 10.times do |z|
+#     n = Noise::Noise3D.new
+#     n.draw :file=>"noise#{z}.png", :size=>[128,128], :scale=>16.0, :z=>z
+#     puts "finished #{z}...."
+# end
+
+# n = Noise::Noise2D.new
+# n.draw :file=>"noise.png", :size=>[128,128], :scale=>16.0
