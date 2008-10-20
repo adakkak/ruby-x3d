@@ -7,7 +7,7 @@ module X3DLib
 
         def initialize(args={})
             @def = args[:def] || "Shape#{rand($RAND)}"
-            @appearance = args[:appearance] || nil
+            @appearance = args[:appearance] || Appearance.new
             @geometry = args[:geometry] || nil
         end
         
@@ -22,8 +22,6 @@ module X3DLib
         def to_xml
             if @geometry.nil?
                 raise "Shape geometry cannot be nil"
-            elsif @appearance.nil?
-                raise "Shape appearance cannot be nil"
             end
 
             xml = Builder::XmlMarkup.new(:indent => 2)

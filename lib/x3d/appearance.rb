@@ -8,7 +8,7 @@ module X3DLib
 
         def initialize(args={})
             @def = args[:def] || "Appearance#{rand($RAND)}"
-            @material = args[:material]
+            @material = args[:material] || Material.new
             @texture = args[:texture]
             @texture_transform = args[:texture_transform]
         end

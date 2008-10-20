@@ -25,6 +25,7 @@ module X3DLib
 
         alias add_transform add_object
         alias add_node add_object
+        alias add_shape add_object
 
         def to_xml
             require 'rubygems'
