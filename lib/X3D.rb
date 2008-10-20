@@ -11,6 +11,7 @@
     x3d/group
     x3d/extrusion
     x3d/lights
+    x3d/collision
 }.each{ |lib|
     require File.join(File.dirname(__FILE__), "../lib", lib)
 }
