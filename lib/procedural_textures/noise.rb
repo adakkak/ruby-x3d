@@ -189,6 +189,71 @@ module Noise
             canvas.write(file_name)
         end
     end
+
+#     class PerlinNoise2D
+#         def initialize(args={})
+#             @smooth = []
+#             @persistance = 0.5
+#             @scale = args[:scale] || 32.0
+#             @octave_count = args[:octave_count] || 4
+#             @size = args[:size] || [256, 256]
+#             @file_name = args[:file_name] || "noise.png"
+#             @noise = Noise2D.new
+#         end
+
+#         def generate
+#             @octave_count.times { |k|
+#                 x = []
+#                 @size[0].times { |i|
+#                     y = []
+#                     @size[1].times { |j|
+#                         y << @noise.noise(i*@scale*(@persistance**k), j*@scale*(@persistance**k))
+#                     }
+#                     x << y
+#                 }
+#                 @smooth << x
+#             }
+
+#             @perlin_noise = [[0]*@size[0]]*@size[1]
+
+#             amplitude = 1.0
+#             total_amplitude = 0.0
+
+#             @octave_count.times { |k|
+#                 amplitude *= @persistance
+#                 total_amplitude += amplitude
+
+#                 @size[0].times{ |i|
+#                     @size[1].times{ |j|
+#                         @perlin_noise[i][j] += @smooth[k][i][j] * amplitude
+#                     }
+#                 }
+#             }
+
+#             @size[0].times{ |i|
+#                 @size[1].times{ |j|
+#                     @perlin_noise[i][j] /= total_amplitude
+#                 }
+#             }
+
+#         end
+
+#         def draw
+#             canvas = Image.new(@size[0], @size[1])
+#             gc = Draw.new
+
+#             @size[0].times{ |x|
+#                 @size[1].times{ |y|
+#                     n = (@perlin_noise[x][y] + 1)*128
+#                     gc.fill("rgb(#{n},#{n},#{n})")
+#                     gc.point(x,y)
+#                 }
+#             }
+#             gc.draw(canvas)
+
+#             canvas.write(@file_name)
+#         end
+#     end
 end
 
 # 10.times do |z|
@@ -199,3 +264,7 @@ end
 
 # n = Noise::Noise2D.new
 # n.draw :file=>"noise.png", :size=>[128,128], :scale=>16.0
+
+# n = Noise::PerlinNoise2D.new :scale=>(1/2.0)
+# n.generate
+# n.draw
