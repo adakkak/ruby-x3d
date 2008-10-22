@@ -1,5 +1,9 @@
 require '../lib/X3D'
 
+=begin
+Demonstrates the usage of the collision class
+=end
+
 scene = X3D.new
 
 collision_node = Collision.new

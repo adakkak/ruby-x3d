@@ -1,5 +1,16 @@
 require '../lib/X3D'
 
+=begin 
+Uses lidar data from Radiohead's album "House of Cards" to recreate one frame
+of their music video. This program parses the ascii lidar data and ignores
+lines that start with #. Each line in Radiohead's data consists of
+
+    <x_coord>, <y_coord>, <z_coord>, <intensity>
+
+This program thus creates a box at x_coord, y_coord which is z_coord high.
+Different shades of gray are then applied based on the intensity value.
+=end
+
 FileName = "radiohead_data_frame2.csv"
 
 def get_max
@@ -25,20 +36,26 @@ cubes = Group.new
 max_x, max_y, max_z, max_intensity = get_max
 
 File.open(FileName).each do |line|
+    # ignore lines that start with a hash
     next if line.start_with? "#" or line.strip.empty?
 
+    # parse each line
     x, y, z, intensity = line.split(",").map{|x| x.to_f}
 
     t = Transform.new
+
+    # move to the x,y position
     t.move_to [x, -y, 0.0]
 
     shape = Shape.new
     appearance = Appearance.new
+    # color the box based on the intensity
     material = Material.new :diffuse_color => [intensity/max_intensity]*3,
                             :ambient_intensity => 0.9,
                             :shininess => 0.5
     appearance.add_material material
 
+    # create a box with height z
     box = Box.new :size=>[1.0, 1.0, z.abs]
     
     shape.add_appearance appearance
@@ -50,6 +67,8 @@ File.open(FileName).each do |line|
 end
 
 t = Transform.new
+
+# rescale the scene
 t.scale [0.01, 0.01, 0.01]
 
 t.add_node cubes
