@@ -1,0 +1,24 @@
+= Information
+
+An attempt at visualizing the trend of 300,000 voters over the past few years.
+
+The LUCAS.TXT file was retrieved from 
+
+ wget ftp://serproxy.sos.state.oh.us/free/Voter/LUCAS.zip
+
+= Status
+
+Able to read the voting record. Now need to use clustering to group them into
+categories
+
+= File Guide
+
+* 2008areis.sqlite3 --- the database found in the areis CD (converted to sqlite)
+* LUCAS.TXT --- contains the voting records of some 300,000 people in Lucas county
+* LUCAS_SAMPLE.TXT --- a subset of LUCAS.TXT
+* Voter_File_Layout.doc --- describes the fields in LUCAS.TXT
+* clustering.rb --- implements k-means-clustering
+* process_data.rb --- parses the data
+* string_distance.rb --- implements levinshtien distance function
+
+

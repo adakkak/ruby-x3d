@@ -1,6 +1,60 @@
 = Information
-This program 
+
+This program reads geographic tile information found at 
+
+ http://gis3.oit.ohio.gov/geodata/
+
+and the `sdiv_lot` shape file found in the 2008 AREIS DVD 
+
+ http://www.co.lucas.oh.us/default.asp?RequestedAlias=AREIS
+
+to reproduce an X3D scene where different houses (currently 3 chosen randomly)
+replace the locations of real-wold  houses.  The aerial tile photograph of the
+tile serves  as the  ground,  while the shape  file is  used to  determine the
+positions of the houses.  Everything is controlled by the `scene.yaml` file.
+
+= Usage
+
+Just type
+
+  sh run.sh
+
+= Prerequisites
+
+Aside from the builder gem which is required for the libx3d library, this
+project requires the GeoRuby gem. You can install it by typing
+
+ gem install GeoRuby
+
+Or visiting their website at
+
+ http://rubyforge.org/projects/georuby/
 
 = Configuration
 
-The program is controlled by the `scene.yaml` configuration file.
+The program is controlled by the `scene.yaml` configuration file. In the file
+you can configure the following:
+
+* max_building_dim --- dimensions of each house
+* geo --- geographic information
+ - tile_dir --- the directory containing the tiles
+ - tile_name --- the name of the tile
+ - shape_dir --- the directory containing the shape file
+ - lbox --- the bounding box on the tile
+   + left --- the left bounding region of the tile
+   + right --- the right bounding region of the tile
+   + bottom --- the bottom bounding region of the tile
+   + top --- the top bounding region of the tile
+
+= File Description
+
+* buildings --- a directory containing the possible building models
+* buildings.rb --- a library that imports all the building models in the building directory
+* city.rb --- draws the final scene
+* config.rb --- reads the configuration file
+* data --- contains the shape file as well as the tiles
+* run.sh --- a small script that runs the city.rb file
+* scene.yaml --- configuration file
+* shapefile.rb --- reads the shape file
+* test_shapefiles.rb --- a shapefiles test script
+* tile_metadata.rb --- parses the metadata from the tiles

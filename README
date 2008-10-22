@@ -6,28 +6,29 @@ Author:: Abdulmajed Dakkak <adakkak@eng.utoledo.edu>
 Licence:: MIT licence
 Homepage:: http://eng.utoledo.edu/~adakkak
 
-RelaX3D is a Ruby library that allows you to easily create X3D scenes using
-the Ruby language. It was designed to be simple, and does not currently
-implement all of X3D's tag elements. 
+RelaX3D is a  Ruby library that allows  you to easily create  X3D scenes using
+the  Ruby language.  It  was designed  to be  simple,  and does  not currently
+implement all of X3D's tag elements.
 
 == Usage
 
-See the examples for more information.
-
-Depending on how you write your library, the usage will vary. All examples
-were written so that they will be executed using the following command,
+Depending on how  you write your library,  the usage  will vary.  All examples
+were written so  that  they  will  be  executed  using  the following command,
 however:
 
  ruby [file].rb > [output].x3d
 
+Refer to the doc directory for documentation on the library itself.
+
 = Prerequisites
 
-You need Ruby and the Builder gem. I.e. after you install Ruby on your Unix
-machine (be it Linux, OSX, or Solaris; of which only Linux and Solaris were
-tested) you have to run the following command (after downloading the ruby-gem
+You need Ruby and the Builder  gem.  I.e.  after you install Ruby on your Unix
+machine (be it Linux,  OSX,  or Solaris;  of which only Linux and Solaris were
+tested) you have to run the  following command (after downloading the ruby-gem
 package)
 
  # gem install builder
 
-
+You may need extra libraries for some of the examples;  see the README file in
+the examples for more information.
 

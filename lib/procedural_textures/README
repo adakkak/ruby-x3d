@@ -1,0 +1,7 @@
+= Information
+
+Implements Perlin noise using RMagick
+
+= Requirement
+
+You need the RMagick gem and the ImageMagick program
