@@ -1,0 +1,10 @@
+= TODO
+
+The library's development was driven by a Virtual Reality project that I was
+doing. As thus, only the tags that I needed were implemented. If I were to
+continue working with X3D then the remainder of the tags will be implemented.
+Aside from that, the following design flaws would be fixed:
+
+* Avoid using random numbers when creating :DEF attributes for tags
+* Add the ability to use the USE attribute for tags
+* Add more examples

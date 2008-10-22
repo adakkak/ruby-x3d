@@ -1,0 +1,405 @@
+<?xml version="1.0"?>
+<!--<!DOCTYPE metadata SYSTEM "http://www.esri.com/metadata/esriprof80.dtd">-->
+<metadata xml:lang="en">
+  <Esri>
+    <CreaDate>20070501</CreaDate>
+    <CreaTime>15432600</CreaTime>
+    <SyncOnce>FALSE</SyncOnce>
+    <SyncDate>20070501</SyncDate>
+    <SyncTime>15432600</SyncTime>
+    <ModDate>20070501</ModDate>
+    <ModTime>15432600</ModTime>
+    <MetaID>{ACC96FA9-3CA4-4BD0-8295-0ACB5C224D6F}</MetaID>
+  </Esri>
+  <idinfo>
+    <native Sync="TRUE">Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 2; ESRI ArcCatalog 9.2.2.1350</native>
+    <descript>
+      <langdata Sync="TRUE">en</langdata>
+      <abstract>The 2006 OSIP bare-earth Digital Elevation Model (DEM) was derived from digital LiDAR data was collected during the months of March and May (leaf-off conditions). The DEM data covers the entire land area of the northern tier of Ohio (approximately 23,442 square miles. The DEM is delivered in county sets, consisting of 5,000' x 5,000' size tiles that correspond to the tile sizes for the OSIP 1FT imagery products.  Where the State borders other states (land only), the entire border of the State is buffered by at least 1,000-feet. Along the Lake Erie Shoreline ortho coverage is buffered beyond the shoreline a minimum distance of 2,500-feet.  The file naming convention is as follows: Nxxxxyyy = 5,000' x 5,000' Tiles located in the Ohio State Plane Coordinate System (North Zone).  Sxxxxyyy = 5,000' x 5,000' Tiles located in the Ohio State Plane Coordinate System (South Zone). Please note that xxxx and yyy represent the easting and northing coordinates (respectively) in state plane feet, The naming convention for each tile is based upon (the bottom most-left pixel). The DEM was provided in ESRI ArcINFO GRID raster and ASCII grid formats, with only the LiDAR in LAS Format containing the above ground LiDAR features. Ownership of the data products resides with the State of Ohio. Orthophotography and ancillary data products produced through this contract are public domain data.
+
+The LiDAR used to generate the DEM was acquired Statewide to provide a solid and very accurate base to use during the image rectification process.  This same LiDAR can be supplemented with 3D breaklines to generate 2-foot and/or 4/5-foot contours.  The average post spacing between LiDAR points is 7-feet.  The flying altitude was 7,300-feet AMT, with the targeted flying speed at 170 knots.</abstract>
+      <purpose>The State of Ohio has a goal to develop and maintain a seamless statewide base map, referred to as OSIP (Ohio Statewide Imagery Program). OSIP is an initiative partnered through several State Agencies (i.e. ODOT, ODNR) through OGRIP. Data from this project forms the foundation of the Statewide base map, and was developed primarily to support multi-use applications, including homeland security, emergency management, economic development, and the business of government.</purpose>
+      <supplinf>The delivery of the DEM and LiDAR products will be based upon the 5,000' x 5,000' ortho tile layout, with the same naming convention used for both the imagery, DEM, and LiDAR.  Each DEM tile was delivered in ESRI ArcINFO GRID raster and ASCII grid formats.</supplinf>
+    </descript>
+    <citation>
+      <citeinfo>
+        <origin>State of Ohio Office of Information Technology, Ohio Geographically Referenced Information Program</origin>
+        <pubdate>20070101</pubdate>
+        <title Sync="TRUE">N1670710.TXT</title>
+        <geoform Sync="TRUE">raster digital data</geoform>
+        <ftname Sync="TRUE">N1670710.TXT</ftname>
+        <onlink Sync="TRUE">
+        </onlink>
+      </citeinfo>
+    </citation>
+    <timeperd>
+      <current>Digital Elevation Model</current>
+      <timeinfo>
+        <rngdates>
+          <begdate>20060318</begdate>
+          <enddate>20060507</enddate>
+        </rngdates>
+      </timeinfo>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>Unknown</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc Sync="TRUE">-83.591796</westbc>
+        <eastbc Sync="TRUE">-83.573285</eastbc>
+        <northbc Sync="TRUE">41.624204</northbc>
+        <southbc Sync="TRUE">41.610313</southbc>
+      </bounding>
+      <lboundng>
+        <leftbc Sync="TRUE">1670000.000060</leftbc>
+        <rightbc Sync="TRUE">1675000.000060</rightbc>
+        <bottombc Sync="TRUE">710000.000049</bottombc>
+        <topbc Sync="TRUE">715000.000049</topbc>
+      </lboundng>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>None</themekt>
+        <themekey>DEM</themekey>
+        <themekey>imageryBaseMapsEarthCover</themekey>
+        <themekey>statewide imagery</themekey>
+        <themekey>georeferenced image</themekey>
+        <themekey>Georectification</themekey>
+        <themekey>OSIP</themekey>
+        <themekey>orthophotography</themekey>
+        <themekey>aerial photograph</themekey>
+        <themekey>rectified image</themekey>
+        <themekey>digital orthophoto</themekey>
+        <themekey>LiDAR</themekey>
+        <themekey>digital elevation model</themekey>
+      </theme>
+      <place>
+        <placekey>US</placekey>
+        <placekey>Ohio</placekey>
+      </place>
+    </keywords>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <natvform Sync="TRUE">Raster Dataset</natvform>
+    <datacred>This data set was acquired for the State of Ohio by Woolpert Inc. Subcontractors for LiDAR data acquisition included Horizons, Inc.</datacred>
+    <ptcontac>
+      <cntinfo>
+        <cntpos>Project Administrator</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical address</addrtype>
+          <address>77 South High Street - Room 1990</address>
+          <city>Columbus</city>
+          <state>Ohio</state>
+          <postal>43215</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>614.466.4747</cntvoice>
+        <cntfax>614.728.5297</cntfax>
+        <cntemail>gis.support@oit.ohio.gov</cntemail>
+        <hours>8:00 am - 5:00 pm</hours>
+        <cntorgp>
+          <cntorg>State of Ohio, through the Office of Information Technology, Investment and Governance Division, for the Office of Information Technology, Services Delivery Division and the Ohio Geographically Referenced Information Program (OGRIP)</cntorg>
+          <cntper>Jeff Smith</cntper>
+        </cntorgp>
+      </cntinfo>
+    </ptcontac>
+    <crossref>
+      <citeinfo>
+        <origin>State of Ohio Office of Information Technology, Ohio Geographically Referenced Information Program</origin>
+      </citeinfo>
+    </crossref>
+  </idinfo>
+  <dataIdInfo>
+    <envirDesc Sync="TRUE">Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 2; ESRI ArcCatalog 9.2.2.1350</envirDesc>
+    <dataLang>
+      <languageCode Sync="TRUE" value="en">
+      </languageCode>
+    </dataLang>
+    <idCitation>
+      <resTitle Sync="TRUE">N1670710.TXT</resTitle>
+      <presForm>
+        <PresFormCd Sync="TRUE" value="005">
+        </PresFormCd>
+      </presForm>
+    </idCitation>
+    <spatRpType>
+      <SpatRepTypCd Sync="TRUE" value="002">
+      </SpatRepTypCd>
+    </spatRpType>
+    <dataExt>
+      <geoEle>
+        <GeoBndBox esriExtentType="native">
+          <westBL Sync="TRUE">1670000.000060</westBL>
+          <eastBL Sync="TRUE">1675000.000060</eastBL>
+          <northBL Sync="TRUE">715000.000049</northBL>
+          <southBL Sync="TRUE">710000.000049</southBL>
+          <exTypeCode Sync="TRUE">1</exTypeCode>
+        </GeoBndBox>
+      </geoEle>
+    </dataExt>
+    <geoBox esriExtentType="decdegrees">
+      <westBL Sync="TRUE">-83.591796</westBL>
+      <eastBL Sync="TRUE">-83.573285</eastBL>
+      <northBL Sync="TRUE">41.624204</northBL>
+      <southBL Sync="TRUE">41.610313</southBL>
+      <exTypeCode Sync="TRUE">1</exTypeCode>
+    </geoBox>
+  </dataIdInfo>
+  <metainfo>
+    <langmeta Sync="TRUE">en</langmeta>
+    <metstdn Sync="TRUE">FGDC Content Standards for Digital Geospatial Metadata</metstdn>
+    <metstdv Sync="TRUE">FGDC-STD-001-1998</metstdv>
+    <mettc Sync="TRUE">local time</mettc>
+    <metc>
+      <cntinfo>
+        <cntaddr>
+          <addrtype>mailing and physical address</addrtype>
+          <city>Dayton</city>
+          <state>Ohio</state>
+          <postal>45402</postal>
+          <address>409 East Monument Avenue</address>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>937.531.1323</cntvoice>
+        <cntperp>
+          <cntper>Brian Stevens</cntper>
+          <cntorg>Woolpert Inc.</cntorg>
+        </cntperp>
+        <cntpos>Project Manager</cntpos>
+        <cntfax>937.461.0743</cntfax>
+        <cntemail>brian.stevens@woolpert.com</cntemail>
+      </cntinfo>
+    </metc>
+    <metd Sync="TRUE">20070501</metd>
+    <metac>These metadata were produced prior to full state delivery and assume acceptance during QA/QC.  All project sets are to be delivered under contract by February 2007.  Completion status is contingent upon passing QA/QC checks and     acceptance of all products by the State of Ohio.  Delivery to counties occurs after acceptance.  If you are accessing this metadata prior to full project acceptance and delivery, users can view project status at http://ohioortho.woolpert.com/</metac>
+    <metextns>
+      <onlink Sync="TRUE">http://www.esri.com/metadata/esriprof80.html</onlink>
+      <metprof Sync="TRUE">ESRI Metadata Profile</metprof>
+    </metextns>
+  </metainfo>
+  <mdLang>
+    <languageCode Sync="TRUE" value="en">
+    </languageCode>
+  </mdLang>
+  <mdStanName Sync="TRUE">ISO 19115 Geographic Information - Metadata</mdStanName>
+  <mdStanVer Sync="TRUE">DIS_ESRI1.0</mdStanVer>
+  <mdChar>
+    <CharSetCd Sync="TRUE" value="004">
+    </CharSetCd>
+  </mdChar>
+  <mdHrLv>
+    <ScopeCd Sync="TRUE" value="005">
+    </ScopeCd>
+  </mdHrLv>
+  <mdHrLvName Sync="TRUE">dataset</mdHrLvName>
+  <distinfo>
+    <resdesc>Downloadable Data
+
+External Hard Drives</resdesc>
+    <stdorder>
+      <digform>
+        <digtinfo>
+          <transize Sync="TRUE">15.299</transize>
+          <dssize Sync="TRUE">15.299</dssize>
+        </digtinfo>
+      </digform>
+    </stdorder>
+    <distrib>
+      <cntinfo>
+        <cntperp>
+          <cntper>Jeff Smith</cntper>
+          <cntorg>OGRIP</cntorg>
+        </cntperp>
+        <cntpos>Manager</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical address</addrtype>
+          <address>77 S. High St. - Rm 1990</address>
+          <city>Columbus</city>
+          <state>Ohio</state>
+          <postal>43215</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>614.466.4747</cntvoice>
+        <cntfax>614.728.5297</cntfax>
+        <cntemail>gis.support@oit.ohio.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <availabl>
+      <timeinfo>
+        <mdattim>
+          <sngdate>
+            <caldate>20070301</caldate>
+          </sngdate>
+        </mdattim>
+      </timeinfo>
+    </availabl>
+  </distinfo>
+  <spdoinfo>
+    <direct Sync="TRUE">Raster</direct>
+    <rastinfo>
+      <rasttype Sync="TRUE">Grid Cell</rasttype>
+      <rowcount Sync="TRUE">2000</rowcount>
+      <colcount Sync="TRUE">2000</colcount>
+      <vrtcount Sync="TRUE">1</vrtcount>
+      <rastxsz Sync="TRUE">2.500000</rastxsz>
+      <rastysz Sync="TRUE">2.500000</rastysz>
+    </rastinfo>
+  </spdoinfo>
+  <spref>
+    <horizsys>
+      <planar>
+        <planci>
+          <plance Sync="TRUE">row and column</plance>
+          <coordrep>
+            <absres Sync="TRUE">2.500000</absres>
+            <ordres Sync="TRUE">2.500000</ordres>
+          </coordrep>
+          <plandu Sync="TRUE">survey feet</plandu>
+        </planci>
+        <mapproj>
+          <mapprojn Sync="TRUE">Lambert Conformal Conic</mapprojn>
+          <lambertc>
+            <stdparll Sync="TRUE">40.433333</stdparll>
+            <stdparll Sync="TRUE">41.700000</stdparll>
+            <longcm Sync="TRUE">-82.500000</longcm>
+            <latprjo Sync="TRUE">39.666667</latprjo>
+            <feast Sync="TRUE">1968500.000000</feast>
+            <fnorth Sync="TRUE">0.000000</fnorth>
+          </lambertc>
+        </mapproj>
+      </planar>
+      <cordsysn>
+        <geogcsn Sync="TRUE">GCS_North_American_1983_HARN</geogcsn>
+        <projcsn Sync="TRUE">NAD_1983_HARN_StatePlane_Ohio_North_FIPS_3401_Feet</projcsn>
+      </cordsysn>
+      <geodetic>
+        <horizdn Sync="TRUE">D_North_American_1983_HARN</horizdn>
+        <ellips Sync="TRUE">Geodetic Reference System 80</ellips>
+        <semiaxis Sync="TRUE">6378137.000000</semiaxis>
+        <denflat Sync="TRUE">298.257222</denflat>
+      </geodetic>
+    </horizsys>
+    <vertdef>
+      <altsys>
+        <altdatum>North American Vertical Datum of 1988</altdatum>
+        <altunits>feet</altunits>
+      </altsys>
+    </vertdef>
+  </spref>
+  <mdDateSt Sync="TRUE">20070501</mdDateSt>
+  <refSysInfo>
+    <RefSystem>
+      <refSysID>
+        <identCode Sync="TRUE">NAD_1983_HARN_StatePlane_Ohio_North_FIPS_3401_Feet</identCode>
+      </refSysID>
+    </RefSystem>
+  </refSysInfo>
+  <dataqual>
+    <logic>Compliance with the accuracy standard was validated by the collection of photo identifiable GPS ground control points     during the acquisition of LiDAR. The following checks were performed.
+              
+ - The LiDAR DEM data was checked against the project ground control. The technical staff confirmed the accuracy of the points during initial processing. Airborne GPS was also utilized during processing.
+
+ </logic>
+    <complete>The following methods are used to assure LiDAR accuracy.
+
+ - Use of IMU and ground control network utilizing GPS techniques.
+
+ - Use of airborne GPS in conjunction with the imagery and LiDAR acquisition.
+
+ - The following software is used for validation of the surface modeling
+
+              - LiDAR DEM Data - Terrascan, TerraModeler, Leica
+
+              - MicroStation
+
+              - ESRI - ArcInfo
+
+              - ERDAS Imagine
+
+              - Woolpert Proprietary software</complete>
+    <posacc>
+      <horizpa>
+        <horizpar>The DEM, meeting NMAS.</horizpar>
+      </horizpa>
+      <vertacc>
+        <vertaccr>The DEM was acquired to meet +/- 1-foot vertical accuracy (RMSE of 0.5-foot - 95% confidence level).  This is suitable for rectification of digital orthophotography and for the creation of 2- and 5-foot contours (with the addition of 3D compiled breaklines).</vertaccr>
+      </vertacc>
+    </posacc>
+    <lineage>
+      <srcinfo>
+        <srccontr>The aerial LiDAR acquisition for the State of Ohio was flown to support the creation of digital orthophotography with a 0.5-foot and 1-foot pixel resolution, as well as 1"=1,000 scale CIR Imagery. LiDAR acquisition was flown at an approximate altitude of 7,300-feet AMT, with approximately 34,000 line miles of acquisition.  The LiDAR was collected using the Leica ALS50 digital LiDAR system.  Woolpert, with the assistance of Horizons, Inc. acquired all LiDAR DEM Data.</srccontr>
+        <srccite>
+          <citeinfo>
+            <origin>Woolpert Inc.</origin>
+            <pubdate>20060626</pubdate>
+            <title>LiDAR Acquisition</title>
+            <edition>1</edition>
+          </citeinfo>
+        </srccite>
+        <srcscale>1"=100', 1"=200' and 1"=1,000'</srcscale>
+        <typesrc>External Hard Drives</typesrc>
+        <srccitea>DEM Acquisition</srccitea>
+      </srcinfo>
+      <procstep>
+        <procdesc Sync="TRUE">Metadata imported.</procdesc>
+        <srcused Sync="TRUE">D:\temp\MD\N1325255.xml</srcused>
+        <date Sync="TRUE">20070501</date>
+        <time Sync="TRUE">15432600</time>
+      </procstep>
+    </lineage>
+    <cloud>None</cloud>
+  </dataqual>
+  <eainfo>
+    <overview>
+      <dsoverv>DEM
+
+ESRI ArcINFO GRID raster and ASCII grid formats</dsoverv>
+    </overview>
+  </eainfo>
+  <spatRepInfo>
+    <GridSpatRep>
+      <numDims Sync="TRUE">2</numDims>
+      <cellGeo>
+        <CellGeoCd Sync="TRUE" value="002">
+        </CellGeoCd>
+      </cellGeo>
+      <tranParaAv Sync="TRUE">1</tranParaAv>
+      <axDimProps>
+        <Dimen>
+          <dimName>
+            <DimNameTypCd Sync="TRUE" value="002">
+            </DimNameTypCd>
+          </dimName>
+          <dimSize Sync="TRUE">2000</dimSize>
+          <dimResol>
+            <value Sync="TRUE">2.5</value>
+            <uom>
+              <UomLength>
+                <uomName Sync="TRUE">Foot_US</uomName>
+                <conversionToISOstandardUnit Sync="TRUE">1 Foot_US = 0.304801 Meter(s)</conversionToISOstandardUnit>
+              </UomLength>
+            </uom>
+          </dimResol>
+        </Dimen>
+        <Dimen>
+          <dimName>
+            <DimNameTypCd Sync="TRUE" value="001">
+            </DimNameTypCd>
+          </dimName>
+          <dimSize Sync="TRUE">2000</dimSize>
+          <dimResol>
+            <value Sync="TRUE">2.5</value>
+            <uom>
+              <UomLength>
+                <uomName Sync="TRUE">Foot_US</uomName>
+                <conversionToISOstandardUnit Sync="TRUE">1 Foot_US = 0.304801 Meter(s)</conversionToISOstandardUnit>
+              </UomLength>
+            </uom>
+          </dimResol>
+        </Dimen>
+      </axDimProps>
+    </GridSpatRep>
+  </spatRepInfo>
+</metadata>
