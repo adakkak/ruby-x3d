@@ -20,6 +20,7 @@ module X3DLib
 
         alias add_child add_node
         alias add_object add_node
+        alias add_transform add_node
 
         def to_xml
             xml = Builder::XmlMarkup.new(:indent => 2)

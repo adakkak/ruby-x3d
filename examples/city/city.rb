@@ -28,14 +28,15 @@ class CityGen
     end
 
     def generate_ground
+       c = Collision.new
        t = Transform.new
        s = Shape.new
        a = Appearance.new
-#        texture = ImageTexture.new :url=>File.join(@config.tile_dir,
-#                                                   @config.tile_name+"_TIF",
-#                                                   @config.tile_name.downcase + ".png"
-#                                                  )
-       texture = ImageTexture.new :url=>(@config.tile_name.downcase + ".png")
+       texture = ImageTexture.new :url=>File.join(@config.tile_dir,
+                                                  @config.tile_name+"_TIF",
+                                                  @config.tile_name.downcase + ".png"
+                                                 )
+#        texture = ImageTexture.new :url=>(@config.tile_name.downcase + ".png")
        a.add_material Material.new :diffuse_color=>"0.1 0.1 0.8"
        a.add_texture texture
        s.add_appearance a
@@ -47,7 +48,8 @@ class CityGen
 
        t.add_object s
 
-       return t
+       c.add_transform t
+       return c
     end
 
     def generate_lights
@@ -84,6 +86,7 @@ class CityGen
         scene = Group.new
 
         while @shp_file.next_record?
+            c = Collision.new
             house = (@houses.shuffle.first).new :dim_x=>@max_bld_dim_x,
                                                 :dim_y=>@max_bld_dim_y,
                                                 :dim_z=>@max_bld_dim_z
@@ -91,7 +94,8 @@ class CityGen
             pos = @shp_file.next_record
             t.move_to [(pos[0] - @bb_left), 0, -(pos[1] - @bb_bottom)]
             t.add_node house
-            scene.add_object t
+            c.add_transform t
+            scene.add_object c
         end
 
         ground = generate_ground
